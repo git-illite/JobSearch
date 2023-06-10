@@ -21,3 +21,7 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+src/playground.js
+
+.cspell/custom-dictionary-workspace.txt

@@ -1,4 +1,8 @@
-const fruits = ["Apple", "Banana", "Orange"];
-const vegetables = ["Cucumber", "Radish"];
+const developer = {
+  salary: 100000,
+  experience: 4.5,
+  techStack: ["Vue", "HTML", "CSS"],
+  lookingForWork: true,
+};
 
-console.log([...fruits, ...vegetables]);
+console.log(developer);

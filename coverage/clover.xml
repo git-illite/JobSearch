@@ -1,27 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686452288916" clover="3.2.0">
-  <project timestamp="1686452288916" name="All files">
-    <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="21" coveredelements="21" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
-    <file name="MainNav.vue" path="C:\Users\abdal\OneDrive\Documents\SenecaSem8\job-search\src\components\MainNav.vue">
-      <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+<coverage generated="1686463561548" clover="3.2.0">
+  <project timestamp="1686463561548" name="All files">
+    <metrics statements="41" coveredstatements="41" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5" elements="48" coveredelements="48" complexity="0" loc="41" ncloc="41" packages="1" files="3" classes="3"/>
+    <file name="ActionButton.vue" path="C:\Users\abdal\OneDrive\Documents\SenecaSem8\job-search\src\components\ActionButton.vue">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="4" count="1" type="stmt"/>
       <line num="7" count="1" type="stmt"/>
       <line num="8" count="1" type="stmt"/>
-      <line num="11" count="2" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
       <line num="20" count="1" type="stmt"/>
-      <line num="22" count="1" type="stmt"/>
+      <line num="24" count="4" type="stmt"/>
       <line num="25" count="1" type="stmt"/>
-      <line num="26" count="1" type="stmt"/>
+    </file>
+    <file name="MainNav.vue" path="C:\Users\abdal\OneDrive\Documents\SenecaSem8\job-search\src\components\MainNav.vue">
+      <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="49" count="1" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="55" count="1" type="stmt"/>
+      <line num="56" count="1" type="stmt"/>
+      <line num="59" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="65" count="1" type="stmt"/>
+      <line num="66" count="1" type="stmt"/>
+      <line num="69" count="1" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
+      <line num="76" count="1" type="stmt"/>
+      <line num="80" count="5" type="stmt"/>
+      <line num="81" count="5" type="stmt"/>
+      <line num="82" count="5" type="stmt"/>
+      <line num="86" count="30" type="stmt"/>
+      <line num="100" count="1" type="stmt"/>
+    </file>
+    <file name="ProfileImage.vue" path="C:\Users\abdal\OneDrive\Documents\SenecaSem8\job-search\src\components\ProfileImage.vue">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
       <line num="27" count="1" type="stmt"/>
-      <line num="30" count="1" type="stmt"/>
-      <line num="33" count="1" type="stmt"/>
-      <line num="36" count="1" type="stmt"/>
-      <line num="37" count="1" type="stmt"/>
-      <line num="40" count="1" type="stmt"/>
-      <line num="43" count="1" type="stmt"/>
-      <line num="48" count="2" type="stmt"/>
-      <line num="52" count="12" type="stmt"/>
-      <line num="58" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

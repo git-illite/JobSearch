@@ -22,4 +22,26 @@ describe("MainNav", () => {
       "Jobs",
     ]);
   });
+  describe("When user is logged out", () => {
+    it("prompts user to sign in", () => {
+      const wrapper = mount(MainNav);
+      const loginButton = wrapper.find("[data-test='login-button']");
+      const profileImage = wrapper.findComponent("[data-test='profile-image']");
+      expect(loginButton.exists()).toBe(true);
+      expect(profileImage.exists()).toBe(false);
+    });
+  });
+  describe("When user is logged in", () => {
+    it("display users profile picture", async () => {
+      const wrapper = mount(MainNav);
+      let profileImage = wrapper.findComponent("[data-test='profile-image']");
+      expect(profileImage.exists()).toBe(false);
+
+      const loginButton = wrapper.find("[data-test='login-button']");
+      await loginButton.trigger("click");
+
+      profileImage = wrapper.findComponent("[data-test='profile-image']");
+      expect(profileImage.exists()).toBe(true);
+    });
+  });
 });

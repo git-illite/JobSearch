@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686440330051" clover="3.2.0">
-  <project timestamp="1686440330051" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2" elements="6" coveredelements="6" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
-    <file name="playground.js" path="C:\Users\abdal\OneDrive\Documents\SenecaSem8\job-search\src\playground.js">
-      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <line num="1" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="3" count="1" type="stmt"/>
+<coverage generated="1686441307219" clover="3.2.0">
+  <project timestamp="1686441307219" name="All files">
+    <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="16" coveredelements="16" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
+    <file name="MainNav.vue" path="C:\Users\abdal\OneDrive\Documents\SenecaSem8\job-search\src\components\MainNav.vue">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="39" count="1" type="stmt"/>
+      <line num="40" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

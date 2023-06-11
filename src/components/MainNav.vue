@@ -7,9 +7,6 @@
         <a href="/" class="flex items-center h-full text-xl">
           {{ company }}
         </a>
-        <h2 class="flex items-center h-full ml-8">
-          Developed By: {{ author }}
-        </h2>
       </div>
     </div>
   </header>
@@ -21,7 +18,6 @@ export default {
   data() {
     return {
       company: "Illite Careers",
-      author: "Abdallah Aden",
     };
   },
 };

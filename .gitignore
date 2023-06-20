@@ -25,3 +25,4 @@ pnpm-debug.log*
 src/playground.js
 
 .cspell/custom-dictionary-workspace.txt
+/coverage

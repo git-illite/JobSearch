@@ -27,9 +27,17 @@
             data-test="profile-image"
             @click="logOutUser"
           />
-          <action-button v-else data-test="login-button" @click="logInUser" />
+          <action-button
+            v-else
+            text="Sign in"
+            type="primary"
+            data-test="login-button"
+            @click="logInUser"
+          />
         </div>
       </div>
+
+      <sub-nav />
     </div>
   </header>
 </template>
@@ -37,11 +45,13 @@
 <script>
 import ActionButton from "@/components/ActionButton.vue";
 import ProfileImage from "@/components/ProfileImage.vue";
+import SubNav from "@/components/SubNav.vue";
 export default {
   name: "MainNav",
   components: {
     ActionButton,
     ProfileImage,
+    SubNav,
   },
   data() {
     return {

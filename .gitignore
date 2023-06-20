@@ -24,5 +24,6 @@ pnpm-debug.log*
 
 src/playground.js
 
-.cspell/custom-dictionary-workspace.txt
+/.cspell/custom-dictionary-workspace.txt
+/cspell
 /coverage

@@ -1,6 +1,6 @@
 import { nextTick } from "vue";
 import { mount } from "@vue/test-utils";
-import Headline from "@/components/Headline";
+import Headline from "@/components/JobSearch/Headline";
 
 describe("Headline", () => {
   beforeEach(() => {
@@ -26,7 +26,6 @@ describe("Headline", () => {
   it("changes action ver at a consisten interval", async () => {
     const wrapper = mount(Headline);
     jest.runOnlyPendingTimers();
-    console.log(wrapper.vm.action);
     await nextTick();
     const actionPhrase = wrapper.find("[data-test='action-phrase']");
     expect(actionPhrase.text()).toBe("Create for everyone");

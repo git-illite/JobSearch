@@ -23,6 +23,11 @@ describe("SubNav", () => {
   describe("SubNav", () => {
     it("doesn't display job count", () => {
       const wrapper = mount(SubNav, {
+        global: {
+          stubs: {
+            FontAwesomeIcon: true,
+          },
+        },
         data() {
           return {
             onJobResultsPage: false,

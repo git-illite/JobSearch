@@ -14,6 +14,10 @@ npm run serve
 ```
 npm run build
 ```
+### Sets up mock backend with db.json file
+```
+npm run backend
+```
 
 ### Run your unit tests
 ```

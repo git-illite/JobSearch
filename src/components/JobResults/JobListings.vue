@@ -44,7 +44,6 @@ export default {
   data() {
     return {
       jobs: [],
-      //BACKEND_URL: "",
     };
   },
   computed: {
@@ -70,11 +69,9 @@ export default {
     },
   },
   async mounted() {
-    // this.BACKEND_URL = process.env.VUE_APP_BACKEND_URL;
-    // console.log("env " + process.env.VUE_APP_BACKEND_URL);
-    const response = await axios.get("http://localhost:3000/jobs");
+    const baseUrl = process.env.VUE_APP_BACKEND_URL;
+    const response = await axios.get(`${baseUrl}/jobs`);
     this.jobs = response.data;
-    //console.log(response);
   },
 };
 </script>

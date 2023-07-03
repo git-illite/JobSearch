@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import router from "@/router";
-import store from "./store";
+import store from "@/store";
 
 /* add icons to the library */
 library.add(faSearch);

@@ -10,15 +10,18 @@ export const mutations = {
   LOGIN_USER(state) {
     state.isLoggedIn = true;
   },
+  LOGOUT_USER(state) {
+    state.isLoggedIn = false;
+  },
 };
 
 const store = createStore({
   state,
-  getters: {},
+  //getters: {},
   mutations,
   strict: process.env.NODE_ENV !== "production",
-  actions: {},
-  modules: {},
+  // actions: {},
+  // modules: {},
 });
 
 export default store;

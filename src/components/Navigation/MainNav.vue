@@ -52,6 +52,9 @@
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import ProfileImage from "@/components//Navigation/ProfileImage.vue";
 import SubNav from "@/components/Navigation/SubNav.vue";
+
+import { LOGIN_USER, LOGOUT_USER } from "@/store";
+
 export default {
   name: "MainNav",
   components: {
@@ -84,10 +87,10 @@ export default {
   },
   methods: {
     logInUser() {
-      this.$store.commit("LOGIN_USER");
+      this.$store.commit(LOGIN_USER);
     },
     logOutUser() {
-      this.$store.commit("LOGOUT_USER");
+      this.$store.commit(LOGOUT_USER);
     },
   },
 };

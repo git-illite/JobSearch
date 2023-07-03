@@ -33,19 +33,20 @@
 </template>
 
 <script>
-import axios from "axios";
 import JobListing from "@/components/JobResults/JobListing.vue";
+import { mapState, mapActions } from "vuex";
+import { FETCH_JOBS } from "@/store";
 
 export default {
   name: "JobListings",
   components: {
     JobListing,
   },
-  data() {
-    return {
-      jobs: [],
-    };
-  },
+  // data() {
+  //   return {
+  //     jobs: [],
+  //   };
+  // },
   computed: {
     previousPage() {
       const previousPage = this.currentPage - 1;
@@ -67,11 +68,13 @@ export default {
       const lastJobIndex = pageNumber * 10;
       return this.jobs.slice(firstJobIndex, lastJobIndex);
     },
+    ...mapState(["jobs"]),
   },
   async mounted() {
-    const baseUrl = process.env.VUE_APP_BACKEND_URL;
-    const response = await axios.get(`${baseUrl}/jobs`);
-    this.jobs = response.data;
+    this.FETCH_JOBS();
+  },
+  methods: {
+    ...mapActions([FETCH_JOBS]),
   },
 };
 </script>

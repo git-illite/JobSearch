@@ -29,7 +29,10 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import { ADD_SELECTED_ORGANIZATIONS, UNIQUE_ORGANIZATIONS } from "@/store";
+import {
+  ADD_SELECTED_ORGANIZATIONS,
+  UNIQUE_ORGANIZATIONS,
+} from "@/store/constants";
 import Accordion from "@/components/Shared/Accordion.vue";
 
 export default {

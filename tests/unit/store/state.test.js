@@ -15,4 +15,9 @@ describe("state", () => {
     const startingState = state();
     expect(startingState.selectedOrganizations).toEqual([]);
   });
+
+  it("stores job types the user has selected", () => {
+    const startingState = state();
+    expect(startingState.selectedJobTypes).toEqual([]);
+  });
 });

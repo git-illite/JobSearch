@@ -50,4 +50,55 @@ describe("getters", () => {
       ]);
     });
   });
+
+  describe("UNIQUE_JOB_TYPES", () => {
+    it("finds unique job types from a list of jobs", () => {
+      const state = {
+        jobs: [
+          { jobType: "Full-time" },
+          { jobType: "Part-time" },
+          { jobType: "Full-time" },
+        ],
+      };
+      const result = getters.UNIQUE_JOB_TYPES(state);
+      expect(result).toEqual(new Set(["Full-time", "Part-time"]));
+    });
+  });
+
+  describe("FILTERED_JOBS_BY_JOB_TYPES", () => {
+    it("identifies jobs that are associated with given job type", () => {
+      const state = {
+        jobs: [
+          { jobType: "Full-time" },
+          { jobType: "Intern" },
+          { jobType: "Part-time" },
+        ],
+        selectedJobTypes: ["Full-time", "Part-time"],
+      };
+      const filteredJobs = getters.FILTERED_JOBS_BY_JOB_TYPES(state);
+      expect(filteredJobs).toEqual([
+        { jobType: "Full-time" },
+        { jobType: "Part-time" },
+      ]);
+    });
+  });
+  describe("when the user has not selected any job types", () => {
+    it("it should return all jobs", () => {
+      const state = {
+        jobs: [
+          { jobType: "Full-time" },
+          { jobType: "Temporary" },
+          { jobType: "Part-time" },
+        ],
+        selectedJobTypes: [],
+      };
+
+      const filteredJobs = getters.FILTERED_JOBS_BY_JOB_TYPES(state);
+      expect(filteredJobs).toEqual([
+        { jobType: "Full-time" },
+        { jobType: "Temporary" },
+        { jobType: "Part-time" },
+      ]);
+    });
+  });
 });

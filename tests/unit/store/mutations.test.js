@@ -23,10 +23,18 @@ describe("mutations", () => {
   });
 
   describe("ADD_SELECTED_ORGANIZATIONS", () => {
-    it("updates organizations that has chosen to filter by", () => {
+    it("updates organizations that the user has chosen to filter by", () => {
       const state = { selectedOrganizations: [] };
       mutations.ADD_SELECTED_ORGANIZATIONS(state, ["Org1", "Org2"]);
       expect(state).toEqual({ selectedOrganizations: ["Org1", "Org2"] });
+    });
+  });
+
+  describe("ADD_SELECTED_JOB_TYPES", () => {
+    it("updates job types that the user has chosen to filter by", () => {
+      const state = { selectedJobTypes: [] };
+      mutations.ADD_SELECTED_JOB_TYPES(state, ["Full-time", "Part-time"]);
+      expect(state).toEqual({ selectedJobTypes: ["Full-time", "Part-time"] });
     });
   });
 });

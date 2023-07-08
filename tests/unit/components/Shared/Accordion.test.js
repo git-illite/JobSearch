@@ -4,9 +4,7 @@ import Accordion from "@/components/Shared/Accordion.vue";
 describe("Accordion", () => {
   const createConfig = (config = {}) => ({
     global: {
-      stubs: {
-        FontAwesomeIcon: true,
-      },
+      stubs: { FontAwesomeIcon: true },
     },
     props: {
       header: "Test Header",
@@ -31,7 +29,7 @@ describe("Accordion", () => {
     it("renders default content", async () => {
       const slots = {};
       const config = { slots };
-      const wrapper = mount(Accordion, config);
+      const wrapper = mount(Accordion, createConfig(config));
       const clickableArea = wrapper.find("[data-test='clickable-area']");
       await clickableArea.trigger("click");
       expect(wrapper.text()).toMatch("Default text");

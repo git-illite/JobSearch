@@ -32,7 +32,7 @@ describe("Accordion", () => {
       const wrapper = mount(Accordion, createConfig(config));
       const clickableArea = wrapper.find("[data-test='clickable-area']");
       await clickableArea.trigger("click");
-      expect(wrapper.text()).toMatch("Default text");
+      expect(wrapper.text()).toMatch("Someone forgot to populate me");
     });
   });
 });

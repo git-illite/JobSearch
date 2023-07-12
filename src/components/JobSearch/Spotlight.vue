@@ -13,17 +13,19 @@
 
 <script>
 import axios from "axios";
+import { onMounted, ref } from "vue";
 export default {
   name: "Spotlight",
-  data() {
-    return {
-      spotlights: [],
+  setup() {
+    const spotlights = ref([]);
+    const getSpotlights = async () => {
+      const baseUrl = process.env.VUE_APP_BACKEND_URL;
+      const response = await axios.get(`${baseUrl}/spotlights`);
+      spotlights.value = response.data;
     };
-  },
-  async mounted() {
-    const baseUrl = process.env.VUE_APP_BACKEND_URL;
-    const response = await axios.get(`${baseUrl}/spotlights`);
-    this.spotlights = response.data;
+    onMounted(getSpotlights);
+
+    return { spotlights };
   },
 };
 </script>

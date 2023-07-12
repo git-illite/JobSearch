@@ -17,7 +17,7 @@ describe("useCurrentPage", () => {
   });
 
   describe("when query params excludes page", () => {
-    fit("returns to first page", () => {
+    it("returns to first page", () => {
       useRoute.mockReturnValue({
         query: {
           page: "",

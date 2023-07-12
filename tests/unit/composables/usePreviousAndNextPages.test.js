@@ -28,7 +28,7 @@ describe("usePreviousAndNextPages", () => {
   });
 
   describe("when current page is the last page", () => {
-    fit("does not provide next page", () => {
+    it("does not provide next page", () => {
       const currentPage = { value: 1 };
       const maxPage = { value: 1 };
       const { nextPage } = usePreviousAndNextPages(currentPage, maxPage);

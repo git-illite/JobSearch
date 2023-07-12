@@ -45,7 +45,7 @@ describe("Store composables", () => {
   });
 
   describe("UseFetchJobsDispatch", () => {
-    fit("it sends call to fetch jobs from API", () => {
+    it("it sends call to fetch jobs from API", () => {
       const dispatch = jest.fn();
       useStore.mockReturnValue({
         dispatch,

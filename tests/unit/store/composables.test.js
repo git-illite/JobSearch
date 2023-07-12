@@ -4,6 +4,7 @@ import {
   useFilteredJobs,
   useUniqueJobTypes,
   useUniqueOrganizations,
+  useFetchJobsDispatch,
 } from "@/store/composables";
 
 describe("Store composables", () => {
@@ -40,6 +41,17 @@ describe("Store composables", () => {
       });
       const result = useUniqueOrganizations();
       expect(result.value).toEqual(new Set(["Google"]));
+    });
+  });
+
+  describe("UseFetchJobsDispatch", () => {
+    fit("it sends call to fetch jobs from API", () => {
+      const dispatch = jest.fn();
+      useStore.mockReturnValue({
+        dispatch,
+      });
+      useFetchJobsDispatch();
+      expect(dispatch).toHaveBeenCalledWith("FETCH_JOBS");
     });
   });
 });

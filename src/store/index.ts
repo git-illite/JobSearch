@@ -9,7 +9,6 @@ const store = createStore({
   mutations,
   strict: process.env.NODE_ENV !== "production",
   actions,
-  // modules: {},
 });
 
 export default store;

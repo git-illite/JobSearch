@@ -1,15 +1,15 @@
 import getters from "@/store/getters";
+import { createState, createJob } from "./utils";
 
 describe("getters", () => {
   describe("UNIQUE_ORGANIZATIONS", () => {
     it("finds unique organizations from a list of jobs", async () => {
-      const state = {
-        jobs: [
-          { organization: "Google" },
-          { organization: "Amazon" },
-          { organization: "Google" },
-        ],
-      };
+      const jobs = [
+        createJob({ organization: "Google" }),
+        createJob({ organization: "Amazon" }),
+        createJob({ organization: "Google" }),
+      ];
+      const state = createState({ jobs });
       const result = getters.UNIQUE_ORGANIZATIONS(state);
       expect(result).toEqual(new Set(["Google", "Amazon"]));
     });
@@ -17,13 +17,12 @@ describe("getters", () => {
 
   describe("UNIQUE_JOB_TYPES", () => {
     it("finds unique job types from a list of jobs", () => {
-      const state = {
-        jobs: [
-          { jobType: "Full-time" },
-          { jobType: "Part-time" },
-          { jobType: "Full-time" },
-        ],
-      };
+      const jobs = [
+        createJob({ jobType: "Full-time" }),
+        createJob({ jobType: "Part-time" }),
+        createJob({ jobType: "Full-time" }),
+      ];
+      const state = createState({ jobs });
       const result = getters.UNIQUE_JOB_TYPES(state);
       expect(result).toEqual(new Set(["Full-time", "Part-time"]));
     });
@@ -32,19 +31,19 @@ describe("getters", () => {
   describe("INCLUDE_JOB_BY_ORGANIZATION", () => {
     describe("when the user has not selected any organizations", () => {
       it("includes job", () => {
-        const state = {
+        const state = createState({
           selectedOrganizations: [],
-        };
-        const job = { organization: "Google" };
+        });
+        const job = createJob({ organization: "Google" });
         const includeJob = getters.INCLUDE_JOB_BY_ORGANIZATION(state)(job);
         expect(includeJob).toBe(true);
       });
     });
     it("identifies if job is associated with given organization", () => {
-      const state = {
+      const state = createState({
         selectedOrganizations: ["Google", "Microsoft"],
-      };
-      const job = { organization: "Google" };
+      });
+      const job = createJob({ organization: "Google" });
       const includeJob = getters.INCLUDE_JOB_BY_ORGANIZATION(state)(job);
       expect(includeJob).toBe(true);
     });
@@ -52,19 +51,19 @@ describe("getters", () => {
   describe("INCLUDE_JOB_BY_JOB_TYPE", () => {
     describe("when the user has not selected any jobs", () => {
       it("includes job", () => {
-        const state = {
+        const state = createState({
           selectedJobTypes: [],
-        };
-        const job = { jobType: "full-time" };
+        });
+        const job = createJob({ jobType: "full-time" });
         const includeJob = getters.INCLUDE_JOB_BY_JOB_TYPE(state)(job);
         expect(includeJob).toBe(true);
       });
     });
     it("identifies if job is associated with given job type", () => {
-      const state = {
+      const state = createState({
         selectedJobTypes: ["full-time", "intern"],
-      };
-      const job = { jobType: "intern" };
+      });
+      const job = createJob({ jobType: "intern" });
       const includeJob = getters.INCLUDE_JOB_BY_JOB_TYPE(state)(job);
       expect(includeJob).toBe(true);
     });
@@ -78,10 +77,10 @@ describe("getters", () => {
         INCLUDE_JOB_BY_JOB_TYPE,
         INCLUDE_JOB_BY_ORGANIZATION,
       };
-      const job = { id: 1, title: "Best job ever" };
-      const state = {
+      const job = createJob({ id: 1, title: "Best job ever" });
+      const state = createState({
         jobs: [job],
-      };
+      });
       const result = getters.FILTERED_JOBS(state, mockGetters);
       expect(result).toEqual([job]);
       expect(INCLUDE_JOB_BY_ORGANIZATION).toHaveBeenCalledWith(job);

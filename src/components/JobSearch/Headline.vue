@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import nextElementInList from "@/utils/nextElementInList.js";
+import nextElementInList from "@/utils/nextElementInList";
 import { defineComponent } from "vue";
 
 interface ActionClasses {

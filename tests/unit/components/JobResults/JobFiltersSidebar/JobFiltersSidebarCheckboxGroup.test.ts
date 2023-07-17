@@ -1,10 +1,13 @@
 import { mount } from "@vue/test-utils";
-import JobFilterSidebarCheckboxGroups from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarCheckboxGroup";
+import JobFilterSidebarCheckboxGroups from "@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarCheckboxGroup.vue";
 import { useRouter } from "vue-router";
 jest.mock("vue-router");
 import { useStore } from "vuex";
 jest.mock("vuex");
 jest.mock("@/store/composables");
+
+const useRouterMock = useRouter as jest.Mock;
+const useStoreMock = useStore as jest.Mock;
 
 describe("JobFiltersSidebarCheckboxGroup", () => {
   const createConfig = (props = {}) => ({
@@ -35,8 +38,8 @@ describe("JobFiltersSidebarCheckboxGroup", () => {
   describe("When user clicks check box", () => {
     it("communicates that user has selected checkbox for value", async () => {
       const commit = jest.fn();
-      useStore.mockReturnValue({ commit });
-      useRouter.mockReturnValue({ push: jest.fn() });
+      useStoreMock.mockReturnValue({ commit });
+      useRouterMock.mockReturnValue({ push: jest.fn() });
       const props = {
         mutation: "SOME_MUTATION",
         uniqueValues: new Set(["Full-time"]),
@@ -48,13 +51,13 @@ describe("JobFiltersSidebarCheckboxGroup", () => {
       const clickableArea = wrapper.find("[data-test='clickable-area']");
       await clickableArea.trigger("click");
       const fullTimeInput = wrapper.find("[data-test='Full-time']");
-      await fullTimeInput.setChecked();
+      await fullTimeInput.setValue(true);
       expect(commit).toHaveBeenCalledWith("SOME_MUTATION", ["Full-time"]);
     });
     it("navigate user to JobResults page to see fresh batch of filtered jobs", async () => {
-      useStore.mockReturnValue({ commit: jest.fn() });
+      useStoreMock.mockReturnValue({ commit: jest.fn() });
       const push = jest.fn();
-      useRouter.mockReturnValue({ push });
+      useRouterMock.mockReturnValue({ push });
       const props = {
         uniqueValues: new Set(["Full-time"]),
       };
@@ -65,7 +68,7 @@ describe("JobFiltersSidebarCheckboxGroup", () => {
       const clickableArea = wrapper.find("[data-test='clickable-area']");
       await clickableArea.trigger("click");
       const fullTimeInput = wrapper.find("[data-test='Full-time']");
-      await fullTimeInput.setChecked();
+      await fullTimeInput.setValue(true);
       expect(push).toHaveBeenCalledWith({ name: "JobResults" });
     });
   });

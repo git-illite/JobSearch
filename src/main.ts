@@ -9,13 +9,13 @@ import {
   faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import router from "@/router";
-import store from "@/store";
+import store, { key } from "@/store";
 
 /* add icons to the library */
 library.add(faSearch, faAngleDown, faAngleUp);
 
 createApp(App)
-  .use(store)
+  .use(store, key)
   .use(router)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");

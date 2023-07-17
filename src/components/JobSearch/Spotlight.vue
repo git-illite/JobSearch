@@ -11,21 +11,28 @@
   </ul>
 </template>
 
-<script>
+<script lang="ts">
 import axios from "axios";
-import { onMounted, ref } from "vue";
-export default {
+import { defineComponent, onMounted, ref } from "vue";
+
+interface Spotlight {
+  id: number;
+  img: string;
+  title: string;
+  description: string;
+}
+export default defineComponent({
   name: "Spotlight",
   setup() {
-    const spotlights = ref([]);
+    const spotlights = ref<Spotlight[]>([]);
     const getSpotlights = async () => {
       const baseUrl = process.env.VUE_APP_BACKEND_URL;
-      const response = await axios.get(`${baseUrl}/spotlights`);
+      const response = await axios.get<Spotlight[]>(`${baseUrl}/spotlights`);
       spotlights.value = response.data;
     };
     onMounted(getSpotlights);
 
     return { spotlights };
   },
-};
+});
 </script>

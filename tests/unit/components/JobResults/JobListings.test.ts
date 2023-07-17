@@ -8,6 +8,10 @@ jest.mock("@/composables/useCurrentPage");
 import usePreviousAndNextPages from "@/composables/usePreviousAndNextPages";
 jest.mock("@/composables/usePreviousAndNextPages");
 
+const useFilteredJobsMock = useFilteredJobs as jest.Mock;
+const useCurrentPageMock = useCurrentPage as jest.Mock;
+const usePreviousAndNextPagesMock = usePreviousAndNextPages as jest.Mock;
+
 describe("JobListings", () => {
   const createConfig = () => ({
     global: {
@@ -18,18 +22,21 @@ describe("JobListings", () => {
   });
   describe("when component mounts", () => {
     it("makes call to fetch jobs from API", () => {
-      useFilteredJobs.mockReturnValue({ value: [] });
-      useCurrentPage.mockReturnValue({ value: 2 });
-      usePreviousAndNextPages.mockReturnValue({ previousPage: 1, nextPage: 3 });
+      useFilteredJobsMock.mockReturnValue({ value: [] });
+      useCurrentPageMock.mockReturnValue({ value: 2 });
+      usePreviousAndNextPagesMock.mockReturnValue({
+        previousPage: 1,
+        nextPage: 3,
+      });
       shallowMount(JobListings, createConfig());
       expect(useFetchJobsDispatch).toHaveBeenCalled;
     });
   });
 
   it("creates a job listing for a max of 10 jobs per page", async () => {
-    useFilteredJobs.mockReturnValue({ value: Array(15).fill({}) });
-    useCurrentPage.mockReturnValue({ value: 1 });
-    usePreviousAndNextPages.mockReturnValue({
+    useFilteredJobsMock.mockReturnValue({ value: Array(15).fill({}) });
+    useCurrentPageMock.mockReturnValue({ value: 1 });
+    usePreviousAndNextPagesMock.mockReturnValue({
       previousPage: undefined,
       nextPage: 2,
     });
@@ -40,9 +47,9 @@ describe("JobListings", () => {
   });
 
   it("displays page number", async () => {
-    useFilteredJobs.mockReturnValue({ value: [] });
-    useCurrentPage.mockReturnValue(ref(5));
-    usePreviousAndNextPages.mockReturnValue({
+    useFilteredJobsMock.mockReturnValue({ value: [] });
+    useCurrentPageMock.mockReturnValue(ref(5));
+    usePreviousAndNextPagesMock.mockReturnValue({
       previousPage: 4,
       nextPage: 6,
     });
@@ -52,9 +59,9 @@ describe("JobListings", () => {
 
   describe("when the user is on the first page", () => {
     it("doesn't show link to previous page", () => {
-      useFilteredJobs.mockReturnValue({ value: [] });
-      useCurrentPage.mockReturnValue({ value: 1 });
-      usePreviousAndNextPages.mockReturnValue({
+      useFilteredJobsMock.mockReturnValue({ value: [] });
+      useCurrentPageMock.mockReturnValue({ value: 1 });
+      usePreviousAndNextPagesMock.mockReturnValue({
         previousPage: undefined,
         nextPage: 2,
       });
@@ -63,9 +70,9 @@ describe("JobListings", () => {
       expect(previousPage).toBeUndefined;
     });
     it("shows link to next page", async () => {
-      useFilteredJobs.mockReturnValue({ value: [] });
-      useCurrentPage.mockReturnValue(ref(1));
-      usePreviousAndNextPages.mockReturnValue({
+      useFilteredJobsMock.mockReturnValue({ value: [] });
+      useCurrentPageMock.mockReturnValue(ref(1));
+      usePreviousAndNextPagesMock.mockReturnValue({
         previousPage: undefined,
         nextPage: 2,
       });
@@ -78,9 +85,9 @@ describe("JobListings", () => {
 
   describe("when the user is on the last page", () => {
     it("doesn't show link to next page", async () => {
-      useFilteredJobs.mockReturnValue({ value: [] });
-      useCurrentPage.mockReturnValue(ref(2));
-      usePreviousAndNextPages.mockReturnValue({
+      useFilteredJobsMock.mockReturnValue({ value: [] });
+      useCurrentPageMock.mockReturnValue(ref(2));
+      usePreviousAndNextPagesMock.mockReturnValue({
         previousPage: 1,
         nextPage: undefined,
       });
@@ -90,9 +97,9 @@ describe("JobListings", () => {
       expect(nextPage.exists()).toBe(false);
     });
     it("shows link to previous page", async () => {
-      useFilteredJobs.mockReturnValue({ value: [] });
-      useCurrentPage.mockReturnValue(ref(2));
-      usePreviousAndNextPages.mockReturnValue({
+      useFilteredJobsMock.mockReturnValue({ value: [] });
+      useCurrentPageMock.mockReturnValue(ref(2));
+      usePreviousAndNextPagesMock.mockReturnValue({
         previousPage: 1,
         nextPage: 3,
       });

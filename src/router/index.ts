@@ -1,7 +1,4 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-// import HomeView from "@/views/HomeView.vue";
-// import JobResultsView from "@/views/JobResultsView";
-// import JobView from "@/views/JobView";
 
 const HomeView = () => import("@/views/HomeView.vue");
 const JobResultsView = () =>

@@ -6,7 +6,7 @@ jest.mock("axios");
 
 const AxiosGetMock = axios.get as jest.Mock;
 
-describe("getJobs", () => {
+describe("getDegrees", () => {
   beforeEach(() => {
     AxiosGetMock.mockResolvedValue({
       data: {
@@ -20,7 +20,7 @@ describe("getJobs", () => {
     await getDegrees();
     expect(AxiosGetMock).toHaveBeenCalledWith("http://myfakeapi.com/degrees");
   });
-  it("fetch returns array of jobs", async () => {
+  it("fetch returns array of degrees", async () => {
     const data = await getDegrees();
     expect(data).toEqual({
       id: 1,

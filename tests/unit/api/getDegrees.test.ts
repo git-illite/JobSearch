@@ -1,5 +1,5 @@
 //import { flushPromises, shallowMount, RouterLinkStub } from "@vue/test-utils";
-import getJobs from "@/api/getJobs";
+import getDegrees from "@/api/getDegrees";
 import axios from "axios";
 
 jest.mock("axios");
@@ -11,20 +11,20 @@ describe("getJobs", () => {
     AxiosGetMock.mockResolvedValue({
       data: {
         id: 1,
-        title: "Vue Engineer",
+        degree: "Master's",
       },
     });
   });
 
-  it("fetch job that candidate can apply to", async () => {
-    await getJobs();
-    expect(AxiosGetMock).toHaveBeenCalledWith("http://myfakeapi.com/jobs");
+  it("fetches all degree types", async () => {
+    await getDegrees();
+    expect(AxiosGetMock).toHaveBeenCalledWith("http://myfakeapi.com/degrees");
   });
   it("fetch returns array of jobs", async () => {
-    const data = await getJobs();
+    const data = await getDegrees();
     expect(data).toEqual({
       id: 1,
-      title: "Vue Engineer",
+      degree: "Master's",
     });
   });
 });

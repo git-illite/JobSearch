@@ -2,6 +2,8 @@ import { shallowMount, RouterLinkStub } from "@vue/test-utils";
 import { createStore } from "vuex";
 import MainNav from "@/components/Navigation/MainNav.vue";
 import { GlobalState } from "@/store/types";
+import { RouterLink } from "vue-router";
+import useConfirmRoute from "@/composables/useConfirmRoute";
 
 interface mockStore {
   state: Partial<GlobalState>;
@@ -18,6 +20,23 @@ describe("MainNav", () => {
       },
     },
   });
+
+  // fit("Click on name navigates to home page", async () => {
+  //   const $store = {
+  //     state: {
+  //       isLoggedIn: false,
+  //     },
+  //   };
+  //   const wrapper = shallowMount(MainNav, createConfig($store));
+  //   const clickableArea = wrapper.find("[data-test='home-logo']");
+  //   await clickableArea.trigger("click");
+  //   //console.log("Clickable area: ", clickableArea);
+  //   // console.log("Router link: ", wrapper.html());
+  //   // expect(wrapper.html()).toContain("to");
+  //   const routeName = "Home";
+  //   const result = useConfirmRoute(routeName);
+  //   expect(result.value).toBe(true);
+  // });
 
   it("displays company name", () => {
     const $store = {

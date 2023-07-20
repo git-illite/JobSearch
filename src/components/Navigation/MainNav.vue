@@ -7,6 +7,7 @@
         <router-link
           :to="{ name: 'Home' }"
           class="flex items-center h-full text-xl"
+          data-test="home-logo"
         >
           Aden Careers
         </router-link>

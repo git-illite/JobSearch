@@ -4,6 +4,7 @@ import {
   FILTERED_JOBS,
   INCLUDE_JOB_BY_ORGANIZATION,
   INCLUDE_JOB_BY_JOB_TYPE,
+  UNIQUE_DEGREES,
 } from "@/store/constants";
 import { GlobalState } from "@/store/types";
 import { Job } from "@/api/types";
@@ -23,6 +24,9 @@ const getters = {
     const uniqueJobs = new Set<string>();
     state.jobs.forEach((job) => uniqueJobs.add(job.jobType));
     return uniqueJobs;
+  },
+  [UNIQUE_DEGREES](state: GlobalState) {
+    return state.degrees.map((degree) => degree.degree);
   },
   [INCLUDE_JOB_BY_ORGANIZATION]: (state: GlobalState) => (job: Job) => {
     if (state.selectedOrganizations.length === 0) return true;

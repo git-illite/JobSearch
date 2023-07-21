@@ -50,7 +50,7 @@ describe("JobFilterSidebar", () => {
     );
     console.log("WrapperVM: ", jobTypesFilter);
 
-    const { header, uniqueValues, mutation } = jobTypesFilter.props();
+    // const { header, uniqueValues, mutation } = jobTypesFilter.props();
 
     expect(jobTypesFilter.exists());
     //expec;

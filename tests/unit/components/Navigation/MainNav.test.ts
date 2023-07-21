@@ -21,22 +21,18 @@ describe("MainNav", () => {
     },
   });
 
-  // fit("Click on name navigates to home page", async () => {
-  //   const $store = {
-  //     state: {
-  //       isLoggedIn: false,
-  //     },
-  //   };
-  //   const wrapper = shallowMount(MainNav, createConfig($store));
-  //   const clickableArea = wrapper.find("[data-test='home-logo']");
-  //   await clickableArea.trigger("click");
-  //   //console.log("Clickable area: ", clickableArea);
-  //   // console.log("Router link: ", wrapper.html());
-  //   // expect(wrapper.html()).toContain("to");
-  //   const routeName = "Home";
-  //   const result = useConfirmRoute(routeName);
-  //   expect(result.value).toBe(true);
-  // });
+  fit("Click on name navigates to home page", async () => {
+    const $store = {
+      state: {
+        isLoggedIn: false,
+      },
+    };
+    const wrapper = shallowMount(MainNav, createConfig($store));
+    const clickableArea = wrapper.find("[data-test='home-logo']");
+    // await clickableArea.trigger("click");
+    // const toProp = clickableArea.props("to");
+    // expect(toProp).toBe("/");
+  });
 
   it("displays company name", () => {
     const $store = {

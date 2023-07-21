@@ -25,4 +25,8 @@ describe("state", () => {
     const startingState = state();
     expect(startingState.selectedJobTypes).toEqual([]);
   });
+  it("stores degrees the user has selected", () => {
+    const startingState = state();
+    expect(startingState.selectedDegrees).toEqual([]);
+  });
 });

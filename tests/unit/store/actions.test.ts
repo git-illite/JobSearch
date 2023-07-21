@@ -18,12 +18,12 @@ describe("actions", () => {
         },
       ]);
     });
-    fit("makes request to fetch jobs", async () => {
+    it("makes request to fetch jobs", async () => {
       const context = { commit: jest.fn() };
       await actions.FETCH_JOBS(context);
       expect(getJobsMock).toHaveBeenCalled();
     });
-    fit("sends message to save received jobs in store", async () => {
+    it("sends message to save received jobs in store", async () => {
       const commit = jest.fn();
       const context = { commit };
       await actions.FETCH_JOBS(context);
@@ -45,12 +45,12 @@ describe("actions", () => {
         },
       ]);
     });
-    fit("makes request to fetch degrees", async () => {
+    it("makes request to fetch degrees", async () => {
       const context = { commit: jest.fn() };
       await actions.FETCH_DEGREES(context);
       expect(getDegreesMock).toHaveBeenCalled();
     });
-    fit("sends message to save received degrees in store", async () => {
+    it("sends message to save received degrees in store", async () => {
       const commit = jest.fn();
       const context = { commit };
       await actions.FETCH_DEGREES(context);

@@ -56,4 +56,18 @@ describe("mutations", () => {
       expect(state.selectedDegrees).toEqual(["Bachelor's", "Master's"]);
     });
   });
+
+  describe("CLEAR_USER_JOB_FILTER_SELECTIONS ", () => {
+    it("removes all job filters that user has selected", () => {
+      const state = createState({
+        selectedDegrees: ["Random Degree"],
+        selectedJobTypes: ["Random job type"],
+        selectedOrganizations: ["Random organization"],
+      });
+      mutations.CLEAR_USER_JOB_FILTER_SELECTIONS(state);
+      expect(state.selectedDegrees).toEqual([]);
+      expect(state.selectedJobTypes).toEqual([]);
+      expect(state.selectedOrganizations).toEqual([]);
+    });
+  });
 });

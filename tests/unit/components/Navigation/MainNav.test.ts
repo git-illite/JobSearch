@@ -21,7 +21,7 @@ describe("MainNav", () => {
     },
   });
 
-  fit("Click on name navigates to home page", async () => {
+  it("Click on name navigates to home page", async () => {
     const $store = {
       state: {
         isLoggedIn: false,
@@ -29,9 +29,11 @@ describe("MainNav", () => {
     };
     const wrapper = shallowMount(MainNav, createConfig($store));
     const clickableArea = wrapper.find("[data-test='home-logo']");
+    const jobPageLink = wrapper.findComponent(RouterLinkStub);
+    const toProp = jobPageLink.props("to");
     // await clickableArea.trigger("click");
     // const toProp = clickableArea.props("to");
-    // expect(toProp).toBe("/");
+    expect(toProp).toStrictEqual({ name: "Home" });
   });
 
   it("displays company name", () => {
@@ -64,6 +66,7 @@ describe("MainNav", () => {
       "Jobs",
     ]);
   });
+
   describe("When user is logged out", () => {
     it("prompts user to sign in", () => {
       const $store = {

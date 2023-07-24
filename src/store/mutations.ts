@@ -38,6 +38,7 @@ const mutations = {
     state.selectedDegrees = [];
     state.selectedJobTypes = [];
     state.selectedOrganizations = [];
+    state.skillsSearchTerm = "";
   },
   [UPDATE_SKILLS_SEARCH_TERM](state: GlobalState, skillsSearchTerm: string) {
     state.skillsSearchTerm = skillsSearchTerm;

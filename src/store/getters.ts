@@ -44,7 +44,10 @@ const getters = {
     return state.selectedDegrees.includes(job.degree);
   },
   [INCLUDE_JOB_BY_SKILL]: (state: GlobalState) => (job: Job) => {
-    return job.title.includes(state.skillsSearchTerm);
+    if (state.skillsSearchTerm.length === 0) return true;
+    return job.title
+      .toLowerCase()
+      .includes(state.skillsSearchTerm.toLowerCase());
   },
   [FILTERED_JOBS](state: GlobalState, getters: IncludeJobGetters) {
     return state.jobs

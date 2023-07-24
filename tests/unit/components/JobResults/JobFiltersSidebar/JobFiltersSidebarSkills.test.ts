@@ -36,5 +36,20 @@ describe("JobFiltersSidebarSkills", () => {
       "Vue Developer"
     );
   });
+  it("removes white space from user input (trims)", async () => {
+    const commit = jest.fn();
+    useStoreMock.mockReturnValue({
+      state: {
+        skillsSearchTerm: "",
+      },
+      commit,
+    });
+    const wrapper = shallowMount(JobFiltersSidebarSkills);
+    const skillSearchInput = wrapper.find("[data-test='skills-search-input']");
+    await skillSearchInput.setValue("    Vue Developer    ");
+    expect(commit).toHaveBeenCalledWith(
+      "UPDATE_SKILLS_SEARCH_TERM",
+      "Vue Developer"
+    );
+  });
 });
-

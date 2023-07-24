@@ -29,4 +29,8 @@ describe("state", () => {
     const startingState = state();
     expect(startingState.selectedDegrees).toEqual([]);
   });
+  it("stores skills that user has entered", () => {
+    const startingState = state();
+    expect(startingState.skillsSearchTerm).toBe("");
+  });
 });

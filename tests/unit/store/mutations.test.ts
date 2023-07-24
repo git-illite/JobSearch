@@ -70,4 +70,14 @@ describe("mutations", () => {
       expect(state.selectedOrganizations).toEqual([]);
     });
   });
+
+  describe("UPDATE_SKILLS_SEARCH_TERM ", () => {
+    it("receives search term for skill use has", () => {
+      const state = createState({
+        skillsSearchTerm: "",
+      });
+      mutations.UPDATE_SKILLS_SEARCH_TERM(state, "Vue");
+      expect(state.skillsSearchTerm).toBe("Vue");
+    });
+  });
 });
